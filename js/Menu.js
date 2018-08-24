@@ -18,7 +18,7 @@ class Menu extends Phaser.Scene{
         this.inicio.on('pointerdown', function(){
             console.log("Inciando la partida");
             this.scene.start("Maze1");
-        }, this);
+        },this);
     }
 
     update(delta){
