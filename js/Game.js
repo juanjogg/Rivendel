@@ -2,8 +2,15 @@ var config = {
     type: Phaser.AUTO,
     width: 414,
     height: 736,
-    scene : [ Menu, Maze1, Settings, Instructions, Credits]
+    physics: {
+        default: 'arcade',
+        arcade: {
+            debug: true
+        }
+    },
+    scene : [ Menu, Maze1, Settings, Instructions, Credits],
+
 };
 
 var game = new Phaser.Game(config);
-game.physics.startSystem(Phaser.Physics.ARCADE);
+//game.physics.startSystem(Phaser.Physics.ARCADE);
