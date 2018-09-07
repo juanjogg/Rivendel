@@ -21,6 +21,11 @@ class Maze1 extends Phaser.Scene{
         this.load.image('linea3', 'assets/descomposicion/partes/08.png')        
         this.load.image('lineaVertical', 'assets/descomposicion/partes/23.png')
         this.load.image('lineaVertical2', 'assets/descomposicion/partes/24.png')
+        this.load.image('MarcoHorizontal', 'assets/descomposicion/partes/barraHorizontal.png')
+        this.load.image('MarcoHorizontal2', 'assets/descomposicion/partes/barraHorizontal1.png')
+        this.load.image('MarcoVertical', 'assets/descomposicion/partes/barraVertical.png')
+        this.load.image('MarcoVertical2', 'assets/descomposicion/partes/barraVertical1.png')
+        this.load.image('MarcoVertical3', 'assets/descomposicion/partes/barraVertical2.png')
 
     }
 
@@ -40,7 +45,7 @@ class Maze1 extends Phaser.Scene{
         this.lineaVertical3 = this.physics.add.staticImage(273, 393, 'lineaVertical2');
         this.linea3 = this.physics.add.staticImage(168, 433, 'linea2');
         this.linea4 = this.physics.add.staticImage(258, 433, 'linea2');
-        this.linea5 = this.physics.add.staticImage(92, 458, 'linea3');
+        this.linea5 = this.physics.add.staticImage(90, 458, 'linea3');
         this.linea6 = this.physics.add.staticImage(334, 458, 'linea3');
 
         //T's
@@ -50,7 +55,7 @@ class Maze1 extends Phaser.Scene{
 
         this.t21 = this.physics.add.staticImage(200, 407, 'linea2');
         this.t22 = this.physics.add.staticImage(227, 407, 'linea2');
-        this.t23 = this.physics.add.staticImage(213, 422, 'lineaVertical2');
+        this.t23 = this.physics.add.staticImage(213, 420, 'lineaVertical2');
 
         this.t31 = this.physics.add.staticImage(198, 459, 'linea2');
         this.t32 = this.physics.add.staticImage(227, 459, 'linea2');
@@ -80,6 +85,27 @@ class Maze1 extends Phaser.Scene{
         this.tv322 = this.physics.add.staticImage(313, 485, 'linea');
         this.tv332 = this.physics.add.staticImage(291, 485, 'linea');
         this.tv342 = this.physics.add.staticImage(259, 486, 'linea2');
+
+        //Marco
+        this.marcoHorizontal = this.physics.add.staticImage(213, 508, 'MarcoHorizontal');
+        this.marcoHorizontal2 = this.physics.add.staticImage(213, 244, 'MarcoHorizontal');
+        this.marcoHorizontal3 = this.physics.add.staticImage(324, 324, 'MarcoHorizontal2');
+        this.marcoHorizontal4 = this.physics.add.staticImage(324, 356, 'MarcoHorizontal2');
+        this.marcoHorizontal5 = this.physics.add.staticImage(324, 378, 'MarcoHorizontal2');
+        this.marcoHorizontal6 = this.physics.add.staticImage(324, 409, 'MarcoHorizontal2');
+        this.marcoHorizontal7 = this.physics.add.staticImage(101, 324, 'MarcoHorizontal2');
+        this.marcoHorizontal8 = this.physics.add.staticImage(101, 356, 'MarcoHorizontal2');
+        this.marcoHorizontal9 = this.physics.add.staticImage(101, 378, 'MarcoHorizontal2');
+        this.marcoHorizontal10 = this.physics.add.staticImage(101, 409, 'MarcoHorizontal2');
+
+        this.marcoVertical = this.physics.add.staticImage(349, 284, 'MarcoVertical');
+        this.marcoVertical1 = this.physics.add.staticImage(298, 340, 'MarcoVertical2');
+        this.marcoVertical2 = this.physics.add.staticImage(298, 394, 'MarcoVertical2');
+        this.marcoVertical3 = this.physics.add.staticImage(349, 459, 'MarcoVertical3');
+        this.marcoVertical4 = this.physics.add.staticImage(77, 284, 'MarcoVertical');
+        this.marcoVertical5 = this.physics.add.staticImage(127, 340, 'MarcoVertical2');
+        this.marcoVertical6 = this.physics.add.staticImage(127, 394, 'MarcoVertical2');
+        this.marcoVertical7 = this.physics.add.staticImage(77, 459, 'MarcoVertical3');
 
         this.arrMap = [this.bloque, this.bloque2, this.bloqueLargo, this.bloqueLargo2, this.linea, this.linea2, this.linea3, this.linea4,
             this.linea5, this.linea6, this.lineaVertical, this.lineaVertical3, this.lineaVertical2, this.t11, this.t12, this.t13, this.t21,
