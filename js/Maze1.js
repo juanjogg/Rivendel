@@ -21,7 +21,11 @@ class Maze1 extends Phaser.Scene{
         this.load.image('linea3', 'assets/descomposicion/partes/08.png')        
         this.load.image('lineaVertical', 'assets/descomposicion/partes/23.png')
         this.load.image('lineaVertical2', 'assets/descomposicion/partes/24.png')
-
+        this.load.image('bloqueCentral', 'assets/descomposicion/partes/02.png');
+        this.load.image('btnArriba', 'assets/descomposicion/botones/arriba.png')
+        this.load.image('btnAbajo', 'assets/descomposicion/botones/abajo.png')
+        this.load.image('btnDerecha', 'assets/descomposicion/botones/derecho.png')
+        this.load.image('btnIzquierda', 'assets/descomposicion/botones/izquierdo.png')
     }
 
     create(){
@@ -42,7 +46,7 @@ class Maze1 extends Phaser.Scene{
         this.linea4 = this.physics.add.staticImage(258, 433, 'linea2');
         this.linea5 = this.physics.add.staticImage(92, 458, 'linea3');
         this.linea6 = this.physics.add.staticImage(334, 458, 'linea3');
-
+        this.bloqueCentral = this.physics.add.staticImage(212, 368, 'bloqueCentral');
         //T's
         this.t11 = this.physics.add.staticImage(200, 301, 'linea2');
         this.t12 = this.physics.add.staticImage(227, 301, 'linea2');
@@ -84,12 +88,15 @@ class Maze1 extends Phaser.Scene{
         this.arrMap = [this.bloque, this.bloque2, this.bloqueLargo, this.bloqueLargo2, this.linea, this.linea2, this.linea3, this.linea4,
             this.linea5, this.linea6, this.lineaVertical, this.lineaVertical3, this.lineaVertical2, this.t11, this.t12, this.t13, this.t21,
             this.t22, this.t23, this.t31, this.t32, this.t33, this.t41, this.t42, this.t51, this.t52, this.tv11, this.tv12, this.tv13, this.tv21, this.tv22, this.tv23,
-            this.tv31, this.tv32, this.tv33, this.tv34, this.tv312, this.tv322, this.tv332, this.tv342];
+            this.tv31, this.tv32, this.tv33, this.tv34, this.tv312, this.tv322, this.tv332, this.tv342, this.bloqueCentral];
 
      
-
+        this.btnArriba = this.add.sprite(212, 550, 'btnArriba').setInteractive();
+        this.btnAbajo = this.add.sprite(212, 670, 'btnAbajo').setInteractive();
+        this.btnDerecha = this.add.sprite(341, 610, 'btnDerecha').setInteractive();
+        this.btnIzquierda = this.add.sprite(75, 610, 'btnIzquierda').setInteractive();
         this.back = this.add.sprite(70, 80, 'back').setInteractive();
-        this.character = this.physics.add.sprite(400 ,100, 'character');
+        this.character = this.physics.add.sprite(85 ,254, 'character');
         this.soundFX = this.sound.add('coinAudio');
         this.character.setScale(0.02, 0.02);
         this.character.body.setVelocity(1, 2).setBounce(0, 0).setCollideWorldBounds(true);
@@ -104,35 +111,58 @@ class Maze1 extends Phaser.Scene{
         this.score = 0;
         this.poisonTxt = this.add.text(330, 160, '0', {fontSize: '24px', fill: '#FFF'});
         this.scorePoison = 0;
+
+        //Grupos
+
         this.coins = this.physics.add.group({
             key: 'coin',
             repeat: '5',
-            setXY: {x: 75, y: 150, stepX:40}
+            setXY: {x: 138, y: 275, stepY: 40}
+        });
+        this.coins2 = this.physics.add.group({
+            key: 'coin',
+            repeat: '5',
+            setXY: {x: 289, y: 275, stepY: 40}
         });
         this.nuts = this.physics.add.group({
             key: 'nut',
             repeat: '2',
-            setXY: {x: 75, y: 160, stepX:40}
+            setXY: {x: 110  , y: 254, stepX:100}
+        });
+        this.nuts2 = this.physics.add.group({
+            key: 'nut',
+            repeat: '2',
+            setXY: {x: 130, y: 498, stepX: 100}
         });
         this.poison = this.physics.add.group({
             key: 'poison',
-            repeat: '5',
-            setXY: {x: 75, y: 170, stepX:40}
+            repeat: '2',
+            setXY: {x: 130, y: 290, stepX:90}
         });
 
         this.coins.children.iterate((child) => {
-            child.setScale(0.8, 0.8);
+            child.setScale(0.5, 0.5);
+            child.setCollideWorldBounds(true);
+            
+        });
+        this.coins2.children.iterate((child) => {
+            child.setScale(0.5, 0.5);
             child.setCollideWorldBounds(true);
             
         });
 
         this.nuts.children.iterate((child) =>{
             child.setCollideWorldBounds(true);
-            child.setScale(0.2, 0.2);
+            child.setScale(0.18, 0.18);
+        });
+        this.nuts2.children.iterate((child) => {
+            child.setScale(0.18, 0.18);
+            child.setCollideWorldBounds(true);
+
         });
         this.poison.children.iterate((child) =>{
             child.setCollideWorldBounds(true);
-            child.setScale(0.2, 0.2);
+            child.setScale(0.18, 0.18);
         });
 
         this.physics.add.overlap(this.character, this.coins, (character, coin) =>{
@@ -143,8 +173,24 @@ class Maze1 extends Phaser.Scene{
             this.scoreGral.setText('Score: '+ this.score);
             this.soundFX.play();
         }, null, this);
+        this.physics.add.overlap(this.character, this.coins2, (character, coin) =>{
+            coin.disableBody(true, true);
+            this.scoreCoin ++;
+            this.score++;
+            this.cointTxt.setText(''+this.scoreCoin);
+            this.scoreGral.setText('Score: '+ this.score);
+            this.soundFX.play();
+        }, null, this);
 
         this.physics.add.overlap(this.character, this.nuts, (character, nut) =>{
+            nut.disableBody(true, true);
+            this.scoreNut ++;
+            this.nutTxt.setText(''+this.scoreNut);
+            this.score+=3;
+            this.scoreGral.setText('Score: '+ this.score);
+
+        }, null, this);
+        this.physics.add.overlap(this.character, this.nuts2, (character, nut) =>{
             nut.disableBody(true, true);
             this.scoreNut ++;
             this.nutTxt.setText(''+this.scoreNut);
@@ -169,10 +215,13 @@ class Maze1 extends Phaser.Scene{
         this.back.on('pointerdown', function(event){
             this.scene.start("Menu");
         },this);
+      
+
         this.cursors = this.input.keyboard.createCursorKeys();
        
         for (let i = 0; i < this.arrMap.length; i++) {
             this.physics.add.collider(this.character, this.arrMap[i]);
+            this.arrMap[i].setScale(1.2, 1.2 );
             
         }
 
@@ -182,20 +231,48 @@ class Maze1 extends Phaser.Scene{
     update(delta){
  
         this.character.setVelocity(0);
+        
+        this.btnArriba.on('pointerdown', (e) => {
+            this.character.setGravityY(-8000);
+            this.character.setGravityX(0);
+        },this);
+        this.btnAbajo.on('pointerdown', (e) => {
+            this.character.setGravityY(8000);
+            this.character.setGravityX(0);
+            
+
+        },this);
+        this.btnDerecha.on('pointerdown', (e) => {
+            this.character.setGravityX(8000);
+            this.character.setGravityY(0);
+        },this);
+        this.btnIzquierda.on('pointerdown', (e) => {
+            this.character.setGravityX(-8000);
+            this.character.setGravityY(0);
+
+        },this);
+
         if(this.cursors.left.isDown){
-           this.character.setVelocityX(-300);
+           this.character.setVelocityX(-200);
+           this.character.setGravity(0);
         }
         else if(this.cursors.right.isDown){
-           this.character.setVelocityX(300);
+           this.character.setVelocityX(200);
+           this.character.setGravity(0);
+
         }
 
         if(this.cursors.up.isDown){
-           this.character.setVelocityY(-300);
+           this.character.setVelocityY(-200);
+           this.character.setGravity(0);
+
         }
         else if(this.cursors.down.isDown){
-           this.character.setVelocityY(300);
+           this.character.setVelocityY(200);
+           this.character.setGravity(0);
+
         }
-        //this.physics.world.collide(this.character, this.maze2);
+        
 
         if(this.score < 0){
             this.scene.start("Maze1");
