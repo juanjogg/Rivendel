@@ -18,7 +18,7 @@ class Maze1 extends Phaser.Scene{
         this.load.image('bloqueLargo', 'assets/descomposicion/partes/07.png');
         this.load.image('linea', 'assets/descomposicion/partes/13.png')
         this.load.image('linea2', 'assets/descomposicion/partes/15.png')
-        this.load.image('linea3', 'assets/descomposicion/partes/08.png')        
+        this.load.image('linea3', 'assets/descomposicion/partes/08.png')
         this.load.image('lineaVertical', 'assets/descomposicion/partes/23.png')
         this.load.image('lineaVertical2', 'assets/descomposicion/partes/24.png')
         this.load.image('bloqueCentral', 'assets/descomposicion/partes/02.png');
@@ -26,6 +26,12 @@ class Maze1 extends Phaser.Scene{
         this.load.image('btnAbajo', 'assets/descomposicion/botones/abajo.png')
         this.load.image('btnDerecha', 'assets/descomposicion/botones/derecho.png')
         this.load.image('btnIzquierda', 'assets/descomposicion/botones/izquierdo.png')
+        this.load.image('MarcoHorizontal', 'assets/descomposicion/partes/barraHorizontal.png')
+        this.load.image('MarcoHorizontal2', 'assets/descomposicion/partes/barraHorizontal1.png')
+        this.load.image('MarcoVertical', 'assets/descomposicion/partes/barraVertical.png')
+        this.load.image('MarcoVertical2', 'assets/descomposicion/partes/barraVertical1.png')
+        this.load.image('MarcoVertical3', 'assets/descomposicion/partes/barraVertical2.png')
+
     }
 
     create(){
@@ -36,7 +42,7 @@ class Maze1 extends Phaser.Scene{
         this.bloque = this.physics.add.staticImage(113, 272, 'bloque')
         this.bloque2 = this.physics.add.staticImage(314, 272, 'bloque')
         this.bloqueLargo = this.physics.add.staticImage(168, 272, 'bloqueLargo')
-        this.bloqueLargo2 = this.physics.add.staticImage(258, 272, 'bloqueLargo')       
+        this.bloqueLargo2 = this.physics.add.staticImage(258, 272, 'bloqueLargo')
         this.linea = this.physics.add.staticImage(114, 301, 'linea');
         this.linea2 = this.physics.add.staticImage(313, 301, 'linea');
         this.lineaVertical = this.physics.add.staticImage(212, 262, 'lineaVertical');
@@ -44,7 +50,7 @@ class Maze1 extends Phaser.Scene{
         this.lineaVertical3 = this.physics.add.staticImage(273, 393, 'lineaVertical2');
         this.linea3 = this.physics.add.staticImage(168, 433, 'linea2');
         this.linea4 = this.physics.add.staticImage(258, 433, 'linea2');
-        this.linea5 = this.physics.add.staticImage(92, 458, 'linea3');
+        this.linea5 = this.physics.add.staticImage(90, 458, 'linea3');
         this.linea6 = this.physics.add.staticImage(334, 458, 'linea3');
         this.bloqueCentral = this.physics.add.staticImage(212, 368, 'bloqueCentral');
         //T's
@@ -54,13 +60,13 @@ class Maze1 extends Phaser.Scene{
 
         this.t21 = this.physics.add.staticImage(200, 407, 'linea2');
         this.t22 = this.physics.add.staticImage(227, 407, 'linea2');
-        this.t23 = this.physics.add.staticImage(213, 422, 'lineaVertical2');
+        this.t23 = this.physics.add.staticImage(213, 420, 'lineaVertical2');
 
         this.t31 = this.physics.add.staticImage(198, 459, 'linea2');
         this.t32 = this.physics.add.staticImage(227, 459, 'linea2');
         this.t33 = this.physics.add.staticImage(213, 473, 'lineaVertical2');
 
-        this.t41 = this.physics.add.staticImage(112, 433, 'linea');        
+        this.t41 = this.physics.add.staticImage(112, 433, 'linea');
         this.t42 = this.physics.add.staticImage(123, 447, 'lineaVertical2');
 
         this.t51 = this.physics.add.staticImage(312, 434, 'linea');
@@ -85,12 +91,35 @@ class Maze1 extends Phaser.Scene{
         this.tv332 = this.physics.add.staticImage(291, 485, 'linea');
         this.tv342 = this.physics.add.staticImage(259, 486, 'linea2');
 
+        //Marco
+        this.marcoHorizontal = this.physics.add.staticImage(213, 508, 'MarcoHorizontal');
+        this.marcoHorizontal2 = this.physics.add.staticImage(213, 244, 'MarcoHorizontal');
+        this.marcoHorizontal3 = this.physics.add.staticImage(324, 324, 'MarcoHorizontal2');
+        this.marcoHorizontal4 = this.physics.add.staticImage(324, 356, 'MarcoHorizontal2');
+        this.marcoHorizontal5 = this.physics.add.staticImage(324, 378, 'MarcoHorizontal2');
+        this.marcoHorizontal6 = this.physics.add.staticImage(324, 409, 'MarcoHorizontal2');
+        this.marcoHorizontal7 = this.physics.add.staticImage(101, 324, 'MarcoHorizontal2');
+        this.marcoHorizontal8 = this.physics.add.staticImage(101, 356, 'MarcoHorizontal2');
+        this.marcoHorizontal9 = this.physics.add.staticImage(101, 378, 'MarcoHorizontal2');
+        this.marcoHorizontal10 = this.physics.add.staticImage(101, 409, 'MarcoHorizontal2');
+
+        this.marcoVertical = this.physics.add.staticImage(349, 284, 'MarcoVertical');
+        this.marcoVertical1 = this.physics.add.staticImage(298, 340, 'MarcoVertical2');
+        this.marcoVertical2 = this.physics.add.staticImage(298, 394, 'MarcoVertical2');
+        this.marcoVertical3 = this.physics.add.staticImage(349, 459, 'MarcoVertical3');
+        this.marcoVertical4 = this.physics.add.staticImage(77, 284, 'MarcoVertical');
+        this.marcoVertical5 = this.physics.add.staticImage(127, 340, 'MarcoVertical2');
+        this.marcoVertical6 = this.physics.add.staticImage(127, 394, 'MarcoVertical2');
+        this.marcoVertical7 = this.physics.add.staticImage(77, 459, 'MarcoVertical3');
+
         this.arrMap = [this.bloque, this.bloque2, this.bloqueLargo, this.bloqueLargo2, this.linea, this.linea2, this.linea3, this.linea4,
             this.linea5, this.linea6, this.lineaVertical, this.lineaVertical3, this.lineaVertical2, this.t11, this.t12, this.t13, this.t21,
             this.t22, this.t23, this.t31, this.t32, this.t33, this.t41, this.t42, this.t51, this.t52, this.tv11, this.tv12, this.tv13, this.tv21, this.tv22, this.tv23,
-            this.tv31, this.tv32, this.tv33, this.tv34, this.tv312, this.tv322, this.tv332, this.tv342, this.bloqueCentral];
+            this.tv31, this.tv32, this.tv33, this.tv34, this.tv312, this.tv322, this.tv332, this.tv342, this.bloqueCentral, this.marcoHorizontal, this.marcoHorizontal2,
+            this.marcoHorizontal3, this.marcoHorizontal4, this.marcoHorizontal5, this.marcoHorizontal6, this.marcoHorizontal7, this.marcoHorizontal8, this.marcoHorizontal9,
+            this.marcoHorizontal10, this.marcoVertical, this.marcoVertical1, this.marcoVertical2, this.marcoVertical3, this.marcoVertical4, this.marcoVertical5, this.marcoVertical6, this.marcoVertical7];
 
-     
+
         this.btnArriba = this.add.sprite(212, 550, 'btnArriba').setInteractive();
         this.btnAbajo = this.add.sprite(212, 670, 'btnAbajo').setInteractive();
         this.btnDerecha = this.add.sprite(341, 610, 'btnDerecha').setInteractive();
@@ -103,11 +132,11 @@ class Maze1 extends Phaser.Scene{
         this.physics.add.collider(this.character, this.esquina);
         //this.physics.add.collider(this.character,this.maze2);
         this.physics.add.collider(this.character, this.bloqueLargo);
-        this.cointTxt = this.add.text(234, 160, '0',{fontSize: '24px', fill: '#FFF'});
+        this.cointTxt = this.add.text(232, 162, '0',{fontSize: '24px', fill: '#FFF'});
         this.scoreCoin = 0;
         this.nutTxt = this.add.text(120, 160, '0',{fontSize: '24px', fill: '#FFF'});
         this.scoreNut = 0;
-        this.scoreGral = this.add.text(8, 0, 'Score: 0', {fontSize: '20px', fill: '#FFF'}); 
+        this.scoreGral = this.add.text(8, 0, 'Score: 0', {fontSize: '20px', fill: '#FFF'});
         this.score = 0;
         this.poisonTxt = this.add.text(330, 160, '0', {fontSize: '24px', fill: '#FFF'});
         this.scorePoison = 0;
@@ -127,7 +156,7 @@ class Maze1 extends Phaser.Scene{
         this.nuts = this.physics.add.group({
             key: 'nut',
             repeat: '2',
-            setXY: {x: 110  , y: 254, stepX:100}
+            setXY: {x: 105  , y: 254, stepX:100}
         });
         this.nuts2 = this.physics.add.group({
             key: 'nut',
@@ -143,12 +172,12 @@ class Maze1 extends Phaser.Scene{
         this.coins.children.iterate((child) => {
             child.setScale(0.5, 0.5);
             child.setCollideWorldBounds(true);
-            
+
         });
         this.coins2.children.iterate((child) => {
             child.setScale(0.5, 0.5);
             child.setCollideWorldBounds(true);
-            
+
         });
 
         this.nuts.children.iterate((child) =>{
@@ -206,7 +235,7 @@ class Maze1 extends Phaser.Scene{
             this.score-=3;
             this.scoreGral.setText('Score: '+ this.score);
 
-        }, null, this);        
+        }, null, this);
 
         this.setting = this.add.sprite(350, 82, 'settings').setInteractive();
         this.setting.on('pointerdown', (event) =>{
@@ -215,23 +244,23 @@ class Maze1 extends Phaser.Scene{
         this.back.on('pointerdown', function(event){
             this.scene.start("Menu");
         },this);
-      
+
 
         this.cursors = this.input.keyboard.createCursorKeys();
-       
+
         for (let i = 0; i < this.arrMap.length; i++) {
             this.physics.add.collider(this.character, this.arrMap[i]);
-            this.arrMap[i].setScale(1.2, 1.2 );
-            
+            //this.arrMap[i].setScale(1.2, 1.2 );
+
         }
 
 
     }
 
     update(delta){
- 
+
         this.character.setVelocity(0);
-        
+
         this.btnArriba.on('pointerdown', (e) => {
             this.character.setGravityY(-8000);
             this.character.setGravityX(0);
@@ -239,7 +268,7 @@ class Maze1 extends Phaser.Scene{
         this.btnAbajo.on('pointerdown', (e) => {
             this.character.setGravityY(8000);
             this.character.setGravityX(0);
-            
+
 
         },this);
         this.btnDerecha.on('pointerdown', (e) => {
@@ -272,7 +301,7 @@ class Maze1 extends Phaser.Scene{
            this.character.setGravity(0);
 
         }
-        
+
 
         if(this.score < 0){
             this.scene.start("Maze1");
@@ -280,8 +309,8 @@ class Maze1 extends Phaser.Scene{
         if(this.score == 15){
             this.score = 0;
             this.add.text(165, 368, 'Ganaste',{fontSize: '32px', fill: '#FFF'});
-          
+
         }
     }
-   
+
 }
