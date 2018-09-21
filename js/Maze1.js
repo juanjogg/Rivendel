@@ -5,32 +5,32 @@ class Maze1 extends Phaser.Scene{
 
     }
     preload(){
-        this.load.image('maze', 'assets/descomposicion/laberinto01/base.jpg');
-        this.load.image('coin', 'assets/descomposicion/laberinto01/coinTest.png');
-        this.load.image('back', 'assets/descomposicion/botones/botonback.png');
-        this.load.image('character', 'assets/character.png');
-        this.load.image('settings', 'assets/descomposicion/botones/botonosetting.png');
-        //this.load.image('maze2', 'assets/descomposicion/laberinto01/laberinto.png');
-        this.load.image('nut', 'assets/descomposicion/laberinto01/nuez.png');
-        this.load.image('poison', 'assets/descomposicion/laberinto01/flor.png');
-        this.load.audio('coinAudio', ['assets/music/coin.wav'])
-        this.load.image('bloque', 'assets/descomposicion/partes/03.png')
-        this.load.image('bloqueLargo', 'assets/descomposicion/partes/07.png');
-        this.load.image('linea', 'assets/descomposicion/partes/13.png')
-        this.load.image('linea2', 'assets/descomposicion/partes/15.png')
-        this.load.image('linea3', 'assets/descomposicion/partes/08.png')
-        this.load.image('lineaVertical', 'assets/descomposicion/partes/23.png')
-        this.load.image('lineaVertical2', 'assets/descomposicion/partes/24.png')
-        this.load.image('bloqueCentral', 'assets/descomposicion/partes/02.png');
-        this.load.image('btnArriba', 'assets/descomposicion/botones/arriba.png')
-        this.load.image('btnAbajo', 'assets/descomposicion/botones/abajo.png')
-        this.load.image('btnDerecha', 'assets/descomposicion/botones/derecho.png')
-        this.load.image('btnIzquierda', 'assets/descomposicion/botones/izquierdo.png')
-        this.load.image('MarcoHorizontal', 'assets/descomposicion/partes/barraHorizontal.png')
-        this.load.image('MarcoHorizontal2', 'assets/descomposicion/partes/barraHorizontal1.png')
-        this.load.image('MarcoVertical', 'assets/descomposicion/partes/barraVertical.png')
-        this.load.image('MarcoVertical2', 'assets/descomposicion/partes/barraVertical1.png')
-        this.load.image('MarcoVertical3', 'assets/descomposicion/partes/barraVertical2.png')
+        this.load.image('maze', 'img/descomposicion/laberinto01/base.jpg');
+        this.load.image('coin', 'img/descomposicion/laberinto01/coinTest.png');
+        this.load.image('back', 'img/descomposicion/botones/botonback.png');
+        this.load.image('character', 'img/character.png');
+        this.load.image('settings', 'img/descomposicion/botones/botonosetting.png');
+        //this.load.image('maze2', 'img/descomposicion/laberinto01/laberinto.png');
+        this.load.image('nut', 'img/descomposicion/laberinto01/nuez.png');
+        this.load.image('poison', 'img/descomposicion/laberinto01/flor.png');
+        this.load.audio('coinAudio', ['img/music/coin.wav'])
+        this.load.image('bloque', 'img/descomposicion/partes/03.png')
+        this.load.image('bloqueLargo', 'img/descomposicion/partes/07.png');
+        this.load.image('linea', 'img/descomposicion/partes/13.png')
+        this.load.image('linea2', 'img/descomposicion/partes/15.png')
+        this.load.image('linea3', 'img/descomposicion/partes/08.png')
+        this.load.image('lineaVertical', 'img/descomposicion/partes/23.png')
+        this.load.image('lineaVertical2', 'img/descomposicion/partes/24.png')
+        this.load.image('bloqueCentral', 'img/descomposicion/partes/02.png');
+        this.load.image('btnArriba', 'img/descomposicion/botones/arriba.png')
+        this.load.image('btnAbajo', 'img/descomposicion/botones/abajo.png')
+        this.load.image('btnDerecha', 'img/descomposicion/botones/derecho.png')
+        this.load.image('btnIzquierda', 'img/descomposicion/botones/izquierdo.png')
+        this.load.image('MarcoHorizontal', 'img/descomposicion/partes/barraHorizontal.png')
+        this.load.image('MarcoHorizontal2', 'img/descomposicion/partes/barraHorizontal1.png')
+        this.load.image('MarcoVertical', 'img/descomposicion/partes/barraVertical.png')
+        this.load.image('MarcoVertical2', 'img/descomposicion/partes/barraVertical1.png')
+        this.load.image('MarcoVertical3', 'img/descomposicion/partes/barraVertical2.png')
 
     }
 

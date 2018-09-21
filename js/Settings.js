@@ -4,11 +4,11 @@ class Settings extends Phaser.Scene{
     }
 
     preload(){
-        this.load.image('screenSettings', 'assets/descomposicion/Ajustes/ajustesbase.jpg');
-        this.load.image('instructions', 'assets/descomposicion/Ajustes/instrucciones.png');
-        this.load.image('credits', 'assets/descomposicion/Ajustes/creditos.png');
-        this.load.image('setBack', 'assets/descomposicion/Ajustes/instruccionesVolver.png');
-        this.load.image('settingsMenu', 'assets/descomposicion/Ajustes/menu.png')
+        this.load.image('screenSettings', 'img/descomposicion/Ajustes/ajustesbase.jpg');
+        this.load.image('instructions', 'img/descomposicion/Ajustes/instrucciones.png');
+        this.load.image('credits', 'img/descomposicion/Ajustes/creditos.png');
+        this.load.image('setBack', 'img/descomposicion/Ajustes/instruccionesVolver.png');
+        this.load.image('settingsMenu', 'img/descomposicion/Ajustes/menu.png')
     }
 
     create(){

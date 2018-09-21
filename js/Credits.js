@@ -4,8 +4,8 @@ class Credits extends Phaser.Scene{
     }
 
     preload(){
-        this.load.image('bgCredits', 'assets/descomposicion/Creditos/Creditosbase.jpg');
-        this.load.image('backCredits', 'assets/descomposicion/botones/botonback.png');
+        this.load.image('bgCredits', 'img/descomposicion/Creditos/Creditosbase.jpg');
+        this.load.image('backCredits', 'img/descomposicion/botones/botonback.png');
     }
 
     create(){

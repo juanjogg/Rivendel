@@ -4,8 +4,8 @@ class Instructions extends Phaser.Scene{
     }
 
     preload(){
-        this.load.image('instruction', 'assets/descomposicion/Instrucciones/instruccionesbase.jpg');
-        this.load.image('insBack', 'assets/descomposicion/Instrucciones/instruccionesboton.png');
+        this.load.image('instruction', 'img/descomposicion/Instrucciones/instruccionesbase.jpg');
+        this.load.image('insBack', 'img/descomposicion/Instrucciones/instruccionesboton.png');
     }
 
     create(){
