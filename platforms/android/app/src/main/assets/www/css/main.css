@@ -1,0 +1,11 @@
+body{
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 50%;
+  height: 50%
+
+}
+canvas{
+  width: 30%;
+  height: 30%;
+}

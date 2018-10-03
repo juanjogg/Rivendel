@@ -1,0 +1,4 @@
+#Tue Sep 18 12:48:35 COT 2018
+base.0=D\:\\Universidad\\Semestre 8\\AppsMoviles\\genCordova\\Rivendel\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0
+renamed.0=classes.dex
+file.0=D\:\\Universidad\\Semestre 8\\AppsMoviles\\genCordova\\Rivendel\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0\\classes.dex
